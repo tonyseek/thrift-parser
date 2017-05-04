@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const parser = require('../thrift-parser');
+const parser = require('../lib/thrift-parser');
 const fs = require('fs');
 const args = process.argv.slice(2);
 

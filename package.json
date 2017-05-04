@@ -2,15 +2,24 @@
   "name": "thrift-parser",
   "version": "0.3.2",
   "description": "To parse thrift file to a AST.",
-  "main": "thrift-parser.js",
   "author": "rongyi.liu@ele.me",
   "license": "MIT",
+  "main": "./dist/lib/thrift-parser.js",
+  "bin": {
+    "thrift-parser": "./dist/bin/thrift-parser.js"
+  },
   "scripts": {
-    "test": "cd tests && ./test.sh"
+    "pretest": "npm run build",
+    "test": "cd ./tests && ./test.sh",
+    "build": "babel --ignore node_modules,tests -d ./dist .",
+    "clean": "git clean -xdf ./dist",
+    "prepublish": "npm run build"
   },
   "types": "./types/index.d.ts",
   "devDependencies": {
     "@types/node": "^7.0.13",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
     "eslint": "^3.19.0",
     "eslint-config-elemefe": "^0.3.0"
   }
